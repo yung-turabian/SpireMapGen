@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv55jfdpd0t0x"]
+
+[ext_resource type="Script" uid="uid://bgxwdx288hk82" path="res://scenes/map.gd" id="1_es2yo"]
+[ext_resource type="Script" uid="uid://bt5iplgx8txdk" path="res://scenes/sys.gd" id="1_mohud"]
+
+[node name="Sys" type="Node"]
+script = ExtResource("1_mohud")
+
+[node name="Map" type="Node" parent="."]
+script = ExtResource("1_es2yo")
+
+[node name="Rooms" type="Node" parent="Map"]
+
+[node name="Cam" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

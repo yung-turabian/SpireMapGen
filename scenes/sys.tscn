@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv55jfdpd0t0x"]
+
+[ext_resource type="Script" uid="uid://bgxwdx288hk82" path="res://scenes/map.gd" id="1_es2yo"]
+[ext_resource type="Script" uid="uid://bt5iplgx8txdk" path="res://scenes/sys.gd" id="1_mohud"]
+[ext_resource type="FontFile" uid="uid://dqvpl30s5oii2" path="res://res/PixelArmy.ttf" id="3_2hc0x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dinim"]
+font = ExtResource("3_2hc0x")
+font_size = 32
+font_color = Color(0.905882, 0.12549, 0, 1)
+
+[node name="Sys" type="Node"]
+script = ExtResource("1_mohud")
+
+[node name="Info" type="Label" parent="."]
+offset_top = 597.0
+offset_right = 654.0
+offset_bottom = 627.0
+text = "SCORLL WITH MOUSE WHEEL OR ARROW KEYS."
+label_settings = SubResource("LabelSettings_dinim")
+
+[node name="Map" type="Node" parent="."]
+script = ExtResource("1_es2yo")
+
+[node name="Rooms" type="Node" parent="Map"]
+
+[node name="GenVisual" type="Timer" parent="Map"]
+
+[node name="Cam" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="timeout" from="Map/GenVisual" to="Map" method="_on_gen_visual_timeout"]
